@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DiscussionsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,3 +29,9 @@ Route::get('sign-up', function () {
 Route::get('discussions', function () {
     return view('pages.discussions.index');
 })->name('discussions');
+
+Route::get('discussions/show', function () {
+    return view('pages.discussions.show');
+})->name('discussions');
+
+// Route::resource('discussions', DiscussionsController::class);
