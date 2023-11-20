@@ -7,9 +7,7 @@
 
 <body>
     @include('includes.navbar')
-
     @yield('content')
-
     @yield('before-script')
     @include('includes.script')
     @yield('after-script')

@@ -3,16 +3,19 @@
 @section('content')
     <section class="bg-gray pt-4 pb-5">
         <div class="container">
+
+            {{-- Header --}}
             <div class="mb-4">
                 <div class="mb-3 d-flex align-items-center justify-content-between">
                     <h2 class="me-4 mb-0">All Discussions</h2>
                     <p>51,875 Discussions</p>
                 </div>
-                <a href="{{ route('login') }}" class="btn btn-primary">Log In to Create Discussion</a>
+                <a href="{{ route('auth.login.show') }}" class="btn btn-primary">Log In to Create Discussion</a>
             </div>
 
             <div class="row">
 
+                {{-- Left Content --}}
                 <div class="col-12 col-lg-8 mb-5 mb-lg-0">
                     <div class="card card-discussions">
                         <div class="row">
@@ -142,6 +145,7 @@
                     </div>
                 </div>
 
+                {{-- Right Content --}}
                 <div class="col-12 col-lg-4">
                     <div class="card all-categories">
                         <h3 class="text-center">All Categories</h3>
@@ -157,7 +161,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>

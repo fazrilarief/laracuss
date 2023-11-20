@@ -47,7 +47,8 @@
                             <button type="submit" class="btn btn-primary rounded-2">Sign Up </button>
                         </div>
                     </div>
-                    <p class="text-center">Already have an account? <a href="#"><u>Log in</u></a></p>
+                    <p class="text-center">Already have an account? <a href="{{ route('auth.login.show') }}"><u>Log
+                                in</u></a></p>
                 </div>
             </div>
         </div>

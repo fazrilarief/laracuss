@@ -3,6 +3,8 @@
 @section('content')
     <section class="bg-gray pt-4 pb-5">
         <div class="container">
+
+            {{-- Breadcrumb --}}
             <div class="mb-5">
                 <div class="d-flex align-items-center">
                     <div class="d-flex">
@@ -13,6 +15,8 @@
                 </div>
             </div>
             <div class="row">
+
+                {{-- Left Conten --}}
                 <div class="col-12 col-lg-8 mb-5 mb-lg-0">
                     <div id="alert" class="alert alert-success my-4 rounded-100 d-none">
                         <div class="container">
@@ -151,14 +155,15 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="fw-bold text-center pt-4 mt-4">
-                        Please <a href="{{ route('login') }}" class="text-primary">sign in</a> or <a
-                            href="{{ route('sign-up') }}" class="text-primary">create an account</a> to participate in this
+                        Please <a href="{{ route('auth.login.show') }}" class="text-primary">sign in</a> or <a
+                            href="{{ route('auth.sign-up.show') }}" class="text-primary">create an account</a> to
+                        participate in this
                         discussion.
                     </div>
                 </div>
 
+                {{-- Rigth Content --}}
                 <div class="col-12 col-lg-4">
                     <div class="card all-categories">
                         <h3 class="text-center">All Categories</h3>
