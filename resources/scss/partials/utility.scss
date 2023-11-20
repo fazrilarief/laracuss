@@ -1,28 +1,27 @@
-.h-32px{
+.h-32px {
     height: 32px;
 }
 
-.h-315px{
+.h-315px {
     height: 315px;
 }
 
-.min-h-372px{
+.min-h-372px {
     min-height: 372px;
 }
 
-.py-80px{
+.py-80px {
     padding-top: 80px;
     padding-bottom: 80px;
 }
 
-.fs-12px{
+.fs-12px {
     font-size: 12px;
 }
 
-.bg-gray{
+.bg-gray {
     background-color: $gray-100;
 }
-
 
 .navbar-nav {
     .nav-link.active {
@@ -34,7 +33,7 @@
         color: $white;
 
         &:hover {
-            color: $gray-200;
+            color: $gray-300;
         }
     }
 }
@@ -89,50 +88,53 @@
     }
 }
 
-.card{
+.card {
     border: none;
     border-radius: 20px;
     padding: 24px;
+    a {
+        text-decoration: none;
+        color: inherit;
+        &:hover {
+            color: $primary !important;
+        }
+    }
 }
 
-a{
-    text-decoration: none;
-    color: inherit;
-    &:hover{
+.text-bg-light {
+    &:hover {
         color: $primary !important;
     }
 }
 
-.text-bg-light{
-    &:hover{
-        color: $primary !important;
-    }
-}
-
-.color-gray{
+.color-gray {
     color: $gray-500;
 }
 
-.card-avatar-sm{
+.card-avatar-sm {
     width: 18px;
     height: 18px;
 }
 
-.avatar-sm-wrapper{
+.avatar-sm-wrapper {
     height: 18px;
     width: 18px;
 }
 
-.avatar{
+.avatar {
     height: 100%;
     width: 100%;
     object-fit: cover;
 }
 
-footer{
+footer {
     background-color: $gray-800;
 }
 
-.me-140px{
+.me-140px {
     margin-right: 140px;
+}
+
+.list-unstyled {
+    text-decoration: none;
 }
