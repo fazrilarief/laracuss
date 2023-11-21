@@ -34,4 +34,8 @@ Route::get('discussions/show', function () {
     return view('pages.discussions.show');
 })->name('discussions.show');
 
+Route::get('discussions/create', function () {
+    return view('pages.discussions.form');
+})->name('discussions.create');
+
 // Route::resource('discussions', DiscussionsController::class);
