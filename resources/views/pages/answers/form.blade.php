@@ -7,7 +7,7 @@
                 <div class="d-flex align-items-center">
                     <div class="d-flex">
                         <div class="tittle fs-2 fw-bold me-2 mb-0">
-                            Ask a Question
+                            Answer a Question
                         </div>
                     </div>
                 </div>
@@ -20,21 +20,8 @@
                             <div class="col-12">
                                 <form action="" method="POST">
                                     <div class="mb-3">
-                                        <label for="tittle" class="form-label">Tittle</label>
-                                        <input type="text" name="tittle" id="tittle" class="form-control" autofocus>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="category_slug" class="form-label">Category</label>
-                                        <select name="category_slug" id="category" class="form-select">
-                                            <option selected disabled>-- Choose One --</option>
-                                            <option value="">Eoquent ORM</option>
-                                            <option value="">Facade</option>
-                                            <option value="">Helper</option>
-                                        </select>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="content" class="form-label">Questions</label>
-                                        <textarea name="content" id="content" cols="30" rows="10" class="form-control"></textarea>
+                                        <label for="answer" class="form-label">Answer</label>
+                                        <textarea name="answer" id="answer" cols="30" rows="10" class="form-control"></textarea>
                                     </div>
                                     <div>
                                         <button class="btn btn-primary me-4" type="submit">
@@ -55,8 +42,8 @@
 @section('after-script')
     <script>
         $(document).ready(function() {
-            $('#content').summernote({
-                placeholder: 'Detail your problem | What did you try | whay your expecting',
+            $('#answer').summernote({
+                placeholder: 'Answers the questions with detail oriented',
                 tabsize: 2,
                 height: 320,
                 toolbar: [
