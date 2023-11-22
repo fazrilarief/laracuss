@@ -29,6 +29,7 @@ Route::get('sign-up', function () {
 Route::get('discussions', function () {
     return view('pages.discussions.index');
 })->name('discussions.index');
+// Route::resource('discussions', DiscussionsController::class);
 
 Route::get('discussions/show', function () {
     return view('pages.discussions.show');
@@ -41,4 +42,7 @@ Route::get('discussions/create', function () {
 Route::get('answers/1', function () {
     return view('pages.answers.form');
 })->name('answers.edit');
-// Route::resource('discussions', DiscussionsController::class);
+
+Route::get('users/fazrilarief', function () {
+    return view('pages.users.show');
+})->name('users.show');

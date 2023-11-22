@@ -1,5 +1,5 @@
-{{-- <div id="alert" class="alert alert-success my-4 rounded-100 d-none">
+<div id="alert" class="alert alert-success mb-0 rounded-100 d-none">
     <div class="container">
 
     </div>
-</div> --}}
+</div>
