@@ -7,13 +7,18 @@
             {{-- Header --}}
             <div class="mb-4">
                 <div class="mb-3 d-flex align-items-center justify-content-between">
-                    <h2 class="me-4 mb-0">All Discussions</h2>
+                    <h2 class="me-4 mb-0">
+                        @if (isset($search))
+                            {{ "Search result for \"$search\"" }}
+                        @else
+                            {{ 'All Discussions' }}
+                        @endif
+                    </h2>
                     <div>
                         {{ $discussions->total() . ' ' . Str::plural('Discussion', $discussions->total()) }}
                     </div>
                 </div>
                 @auth
-
                     <a href="{{ route('discussions.create') }}" class="btn btn-primary">Create Discussions</a>
                 @endauth
                 @guest
