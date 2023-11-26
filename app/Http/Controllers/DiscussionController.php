@@ -15,7 +15,13 @@ class DiscussionController extends Controller
      */
     public function index()
     {
-        //
+        $discussions = Discussion::with('user', 'category');
+
+        return response()->view('pages.discussions.index', [
+            'discussions' => $discussions->orderBy('created_at', 'desc')
+                ->paginate(20),
+            'categories' => Category::all(),
+        ]);
     }
 
     /**
