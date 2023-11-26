@@ -81,6 +81,10 @@
                             Currently no discussion yet
                         </div>
                     @endforelse
+
+                    <div class="d-flex justify-content-center align-items-center">
+                        {{ $discussions->links() }}
+                    </div>
                 </div>
 
                 {{-- Right Content --}}
