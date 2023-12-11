@@ -7,8 +7,14 @@
             <div class="col-12 col-lg-6">
                 <h1>The Laravel <br> Community Forum</h1>
                 <p>Empowering the Laravel community to connect, share and learn.</p>
-                <a href="{{ route('auth.sign-up.show') }}" class="btn btn-primary me-2 mb-2 mb-lg-0">Sign Up</a>
-                <a href="{{ route('discussions.index') }}" class="btn btn-secondary mb-2 mb-lg-0">Join Discussion</a>
+                @auth
+                    <a href="{{ route('discussions.create') }}" class="btn btn-primary me-2 mb-2 mb-lg-0">Create Discussion</a>
+                    <a href="{{ route('discussions.index') }}" class="btn btn-secondary mb-2 mb-lg-0">Join Discussion</a>
+                @endauth
+                @guest
+                    <a href="{{ route('auth.sign-up.show') }}" class="btn btn-primary me-2 mb-2 mb-lg-0">Sign Up</a>
+                    <a href="{{ route('discussions.index') }}" class="btn btn-secondary mb-2 mb-lg-0">Join Discussion</a>
+                @endguest
             </div>
             <div class="col-12 col-lg-6 order-first order-lg-last mb-3 mb-lg-0 h-315px">
                 <img class="hero-image float-lg-end" src="{{ url('assets/images/hero_image.png') }}" alt="#">
