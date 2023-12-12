@@ -47,7 +47,7 @@
                                         <h3>{{ $discussion->tittle }}</h3>
                                     </a>
                                     <p>
-                                        {{ $discussion->content_preview }}
+                                        {!! $discussion->content_preview !!}
                                     </p>
                                     <div class="row">
                                         <div class="col me-1 me-lg-2">
