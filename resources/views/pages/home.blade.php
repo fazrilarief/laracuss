@@ -153,8 +153,13 @@
         <h2>Ready to contribute?</h2>
         <p class="mb-4">Want to make a big impact?</p>
         <div class="text-center">
-            <a href="{{ route('auth.sign-up.show') }}" class="btn btn-primary me-2 mb-2 mb-lg-0">Sign Up</a>
-            <a href="{{ route('discussions.index') }}" class="btn btn-secondary mb-2 mb-lg-0">Join Discussions</a>
+            @auth
+                <a href="{{ route('discussions.index') }}" class="btn btn-primary mb-2 mb-lg-0">Join Discussions</a>
+            @endauth
+            @guest
+                <a href="{{ route('auth.sign-up.show') }}" class="btn btn-primary me-2 mb-2 mb-lg-0">Sign Up</a>
+                <a href="{{ route('discussions.index') }}" class="btn btn-secondary mb-2 mb-lg-0">Join Discussions</a>
+            @endguest
         </div>
     </section>
 @endsection

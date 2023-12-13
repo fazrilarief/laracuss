@@ -48,18 +48,25 @@
                                             <input type="text" value="{{ route('discussions.show', $discussion->slug) }}"
                                                 id="current-url" class="d-none">
                                         </span>
+
                                         @if ($discussion->user_id === auth()->id())
                                             <span class="color-gray me-2">
                                                 <a href="{{ route('discussions.edit', $discussion->slug) }}">
                                                     <small>Edit</small>
                                                 </a>
                                             </span>
-                                            <span class="color-gray me-2">
-                                                <a href="javascript:;">
-                                                    <small>Delete</small>
-                                                </a>
-                                            </span>
+
+                                            <form action="{{ route('discussions.destroy', $discussion->slug) }}"
+                                                class="d-inline-block lh-1" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="color-gray btn p-0 lh-1"
+                                                    id="delete-discussion" onclick="confirm('Delete Discussion ?')">
+                                                    <small class="card-discussion-delete-btn">Delete</small>
+                                                </button>
+                                            </form>
                                         @endif
+
                                     </div>
                                     <div class="col-5 col-lg-3 d-flex">
                                         <a href="#"
