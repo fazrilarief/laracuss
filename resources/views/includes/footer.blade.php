@@ -23,7 +23,7 @@
                             <ul class="list-unstyled">
                                 <li class="text-white"><a href="{{ route('home') }}">Home</a></li>
                                 <li class="text-white"><a href="{{ route('discussions.index') }}">Discussions</a></li>
-                                <li class="text-white"><a href="#">About Us</a></li>
+                                <li class="text-white"><a href="{{ route('about-us') }}">About Us</a></li>
                             </ul>
                         </div>
                     </div>

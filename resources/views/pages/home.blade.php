@@ -44,7 +44,7 @@
     </section>
 
     {{-- Help Others --}}
-    <section class="help-others bg-gray">
+    {{-- <section class="help-others bg-gray">
         <div class="container py-80px">
             <h2 class="text-center mb-5">Help Others</h2>
             <div class="row">
@@ -146,7 +146,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     {{-- CTA --}}
     <section class="container min-h-372px d-flex flex-column align-items-center justify-content-center">

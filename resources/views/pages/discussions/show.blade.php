@@ -25,12 +25,13 @@
                     </div>
                     <div class="card card-discussions mb-5 ">
                         <div class="row">
-                            <div class="col-1 d-flex flex-column justify-content start align-items-center">
-                                <a href="#">
-                                    <img src="{{ url('assets/images/ic_like.png') }}" alt="Like"
-                                        class="like-icon mb-1 ">
+                            <div class="col-1 d-flex flex-column justify-content-start align-items-center">
+                                <a href="{{ route('discussions.like.like', $discussion->slug) }}">
+                                    <img src="{{ $discussion->liked() ? $likedImage : $notLikedImage }}" alt="Like"
+                                        class="like-icon mb-1">
                                 </a>
-                                <span class="fs-4 color-gray mb-1">12</span>
+                                <span id="discussion-like-count"
+                                    class="fs-4 color-gray mb-1">{{ $discussion->likeCount }}</span>
                             </div>
                             <div class="col-11">
                                 <p>{!! $discussion->content !!} </p>
@@ -67,7 +68,6 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
 
@@ -183,6 +183,33 @@
                 var alertContainer = alert.find('.container');
                 alertContainer.first().text('Link to this discussions copied');
             })
+
+            $('#discussion-like').click(function() {
+                var isLiked = $(this).data('liked');
+                var likeRoute = isLiked ? '{{ route('discussions.like.unlike', $discussion->slug) }}' :
+                    '{{ route('discussions.like.like', $discussion->slug) }}';
+
+                $.ajax({
+                        method: 'POST',
+                        url: likeRoute,
+                        data: {
+                            '_token': '{{ csrf_token() }}'
+                        }
+                    })
+                    .done(function(res) {
+                        if (res.status === 'success') {
+                            $('#discussion-like-count').text(res.data.likeCount);
+
+                            if (isLiked) {
+                                $('#discussion-like-icon').attr('src', '{{ $notLikedImage }}');
+                            } else {
+                                $('#discussion-like-icon').attr('src', '{{ $likedImage }}');
+                            }
+
+                            $('#discussion-like').data('liked', !isLiked);
+                        }
+                    })
+            });
         })
     </script>
 @endsection

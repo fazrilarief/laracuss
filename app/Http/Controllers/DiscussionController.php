@@ -79,9 +79,14 @@ class DiscussionController extends Controller
             return abort(404);
         }
 
+        $notLikedImage = url('assets/images/ic_like.png');
+        $likedImage = url('assets/images/ic_liked_active.png');
+
         return response()->view('pages.discussions.show', [
             'discussion' => $discussion,
             'categories' => Category::all(),
+            'likedImage' => $likedImage,
+            'notLikedImage' => $notLikedImage,
         ]);
     }
 

@@ -20,7 +20,7 @@
                             aria-current="page" href="{{ route('discussions.index') }}">Discussions</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-nowrap" aria-current="page" href="#">About Us</a>
+                        <a class="nav-link text-nowrap" aria-current="page" href="{{ route('about-us') }}">About Us</a>
                     </li>
                 </ul>
                 <form class="d-flex w-100 me-4 my-2 my-lg-0" role="search" action="{{ route('discussions.index') }}"
@@ -47,7 +47,7 @@
                                 <span class="fw-bold">{{ auth()->user()->username }}</span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{ route('users.show') }}" class="dropdown-item">My Profile</a></li>
+                                {{-- <li><a href="{{ route('users.show') }}" class="dropdown-item">My Profile</a></li> --}}
                                 <li>
                                     <form action="{{ route('auth.login.logout') }}" method="POST">
                                         @csrf
