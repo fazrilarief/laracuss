@@ -61,7 +61,7 @@
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="color-gray btn p-0 lh-1"
-                                                    id="delete-discussion" onclick="confirm('Delete Discussion ?')">
+                                                    id="delete-discussion" onclick="return confirm('Delete Discussion ?')">
                                                     <small class="card-discussion-delete-btn">Delete</small>
                                                 </button>
                                             </form>
@@ -122,7 +122,7 @@
                                                     @method('DELETE')
                                                     <button type="submit"
                                                         class="color-gray btn text-decoration-none card-answer-delete-btn"
-                                                        onclick="confirm('Delete Answer ?')">
+                                                        onclick="return confirm('Delete Answer ?')">
                                                         Delete
                                                     </button>
                                                 </form>
