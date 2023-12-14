@@ -61,7 +61,6 @@
                                     </div>
                                     <div>
                                         <button class="btn btn-primary me-4" type="submit">Submit</button>
-                                        <a href="{{ route('discussions.index') }}">Cancel</a>
                                     </div>
                                 </form>
                             </div>

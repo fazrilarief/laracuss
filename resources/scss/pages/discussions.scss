@@ -18,8 +18,15 @@
     top: -1px;
     
     &:hover{
-        border-radius: 10%;
-        background-color: $red-600;
-        color: white;
+        color: red;
+    }
+}
+
+.card-answer-delete-btn{
+    position: relative;
+    top: -1px;
+    
+    &:hover{
+        color: red;
     }
 }

@@ -109,6 +109,27 @@
                                         {!! $answer->answer !!}
                                     </p>
                                     <div class="row align-items-end justify-content-end">
+                                        <div class="col">
+                                            @if ($answer->user_id === auth()->id())
+                                                <span class="color-gray me-2">
+                                                    <a href="{{ route('answers.edit', $answer->id) }}">
+                                                        Edit
+                                                    </a>
+                                                </span>
+                                                <form action="{{ route('answers.destroy', $answer->id) }}"
+                                                    class="d-inline-block lh-1" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit"
+                                                        class="color-gray btn text-decoration-none card-answer-delete-btn"
+                                                        onclick="confirm('Delete Answer ?')">
+                                                        Delete
+                                                    </button>
+                                                </form>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="row align-items-end justify-content-end">
                                         <div class="col-5 col-lg-3 d-flex">
                                             <a href="#"
                                                 class="card-discussions-show-avatar-wrapper flex-shrink-0 rounded-circle overflow-hidden me-1">

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\DiscussionController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,7 @@ Route::middleware('auth')->group(function () {
 
         Route::post('discussions/{discussion}/answer', 'AnswerController@store')
             ->name('discussions.answer.store');
+        Route::resource('answers', AnswerController::class)->only(['edit', 'update', 'destroy']);
     });
 });
 
@@ -51,10 +53,6 @@ Route::namespace('App\Http\Controllers\Auth')->group(function () {
 Route::get('about-us', function () {
     return view('pages.about-us.about-us');
 })->name('about-us');
-
-Route::get('answers/1', function () {
-    return view('pages.answers.form');
-})->name('answers.edit');
 
 Route::get('users/fazrilarief', function () {
     return view('pages.users.show');
