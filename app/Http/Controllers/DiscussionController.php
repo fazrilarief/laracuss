@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Discsussion\StoreRequest;
 use \App\Http\Requests\Discussion\UpdateRequest;
+use App\Models\Answer;
 use App\Models\Category;
 use App\Models\Discussion;
 use Illuminate\Http\Request;
@@ -80,6 +81,10 @@ class DiscussionController extends Controller
             return abort(404);
         }
 
+        $discussionAnswers = Answer::where('discussion_id', $discussion->id)
+            ->orderBy('created_at', 'desc')
+            ->paginate(5);
+
         $notLikedImage = url('assets/images/ic_like.png');
         $likedImage = url('assets/images/ic_liked_active.png');
 
@@ -88,6 +93,7 @@ class DiscussionController extends Controller
             'categories' => Category::all(),
             'likedImage' => $likedImage,
             'notLikedImage' => $notLikedImage,
+            'discussionAnswers' => $discussionAnswers,
         ]);
     }
 
