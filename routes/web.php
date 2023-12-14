@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth')->group(function () {
-    Route::namespace('App\Http\Controller')->group(function () {
+    Route::namespace('App\Http\Controllers')->group(function () {
         Route::resource('discussions', DiscussionController::class)
             ->only(['create', 'store', 'edit', 'update', 'destroy']);
 
@@ -23,13 +23,15 @@ Route::middleware('auth')->group(function () {
             ->name('discussions.like.like');
         Route::post('discussions/{discussion}/unlike', 'LikeController@discussionUnlike')
             ->name('discussions.like.unlike');
+
+        Route::post('discussions/{discussion}/answer', 'AnswerController@store')
+            ->name('discussions.answer.store');
     });
 });
 
 Route::namespace('App\Http\Controllers')->group(function () {
     Route::resource('discussions', DiscussionController::class)
         ->only(['index', 'show']);
-
     Route::get('discussions/categories/{category}', 'CategoryController@show')
         ->name('discussions.categories.show');
 });

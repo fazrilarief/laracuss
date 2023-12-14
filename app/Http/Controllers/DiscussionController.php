@@ -177,6 +177,6 @@ class DiscussionController extends Controller
             return redirect()->route('discussions.index');
         }
 
-        return abort(500);  
+        return abort(500);
     }
 }

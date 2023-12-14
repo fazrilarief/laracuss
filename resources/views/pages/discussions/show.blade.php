@@ -90,7 +90,7 @@
                         </div>
                     </div>
 
-                    <h3 class="mb-3">Answers</h3>
+                    <h3 class="mb-">Answers</h3>
                     <div class="card card-discussions">
                         <div class="row">
                             <div class="col-1 d-flex flex-column justify-content-start align-items-center">
@@ -122,50 +122,68 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card card-discussions">
+                        <div class="row">
+                            <div class="col-1 d-flex flex-column justify-content-start align-items-center">
+                                <a href="#">
+                                    <img src="{{ url('assets/images/ic_like_active.png') }}" alt="Like"
+                                        class="like-icon mb-1">
+                                </a>
+                                <span class="fs-4 color-gray mb-1">4</span>
+                            </div>
+                            <div class="col-11">
+                                <p>
+                                    lorem ipsum dolor sit amet contecstur lorem ipsum dolor sit amet contecsturlorem ipsum
+                                    dolor
+                                    sit amet contecsturlorem ipsum dolor sit amet contecstur
+                                </p>
+                                <div class="row align-items-end justify-content-end">
+                                    <div class="col-5 col-lg-3 d-flex">
+                                        <a href="#"
+                                            class="card-discussions-show-avatar-wrapper flex-shrink-0 rounded-circle overflow-hidden me-1">
+                                            <img src="{{ url('assets/images/avatar.png') }}" alt="avatar" class="avatar">
+                                        </a>
+                                        <div class="fs-12px lh-1">
+                                            <span class="text-primary">
+                                                <a href="#" class="fw-bold d-flex align-items-start text-break mb-1">
+                                                    ucokcintacoding
+                                                </a>
+                                            </span>
+                                            <span class="color-gray">4 hours ago</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card card-discussions">
-                        <div class="row">
-                            <div class="col-1 d-flex flex-column justify-content-start align-items-center">
-                                <a href="#">
-                                    <img src="{{ url('assets/images/ic_like_active.png') }}" alt="Like"
-                                        class="like-icon mb-1">
-                                </a>
-                                <span class="fs-4 color-gray mb-1">4</span>
-                            </div>
-                            <div class="col-11">
-                                <p>
-                                    lorem ipsum dolor sit amet contecstur lorem ipsum dolor sit amet contecsturlorem ipsum
-                                    dolor
-                                    sit amet contecsturlorem ipsum dolor sit amet contecstur
-                                </p>
-                                <div class="row align-items-end justify-content-end">
-                                    <div class="col-5 col-lg-3 d-flex">
-                                        <a href="#"
-                                            class="card-discussions-show-avatar-wrapper flex-shrink-0 rounded-circle overflow-hidden me-1">
-                                            <img src="{{ url('assets/images/avatar.png') }}" alt="avatar" class="avatar">
-                                        </a>
-                                        <div class="fs-12px lh-1">
-                                            <span class="text-primary">
-                                                <a href="#" class="fw-bold d-flex align-items-start text-break mb-1">
-                                                    ucokcintacoding
-                                                </a>
-                                            </span>
-                                            <span class="color-gray">4 hours ago</span>
-                                        </div>
-                                    </div>
+                    @auth
+                        <h3 class="mb-5 mt-5">
+                            Your Answer
+                        </h3>
+                        <div class="card card-discussions">
+                            <form action="{{ route('discussions.answer.store', $discussion->slug) }}" method="POST">
+                                @csrf
+                                <div class="mb-3">
+                                    <textarea name="answer" id="answer">{{ old('answer') }}</textarea>
                                 </div>
-                            </div>
+                                <div>
+                                    <button class="btn btn-primary me-4" type="submit">Submit</button>
+                                </div>
+                            </form>
                         </div>
-                    </div>
-                    <div class="fw-bold text-center pt-4 mt-4">
-                        Please <a href="{{ route('auth.login.show') }}" class="text-primary">sign in</a> or <a
-                            href="{{ route('auth.sign-up.show') }}" class="text-primary">create an account</a> to
-                        participate in this
-                        discussion.
-                    </div>
+                    @endauth
+                    @guest
+                        <div class="fw-bold text-center pt-4 mt-4">
+                            Please <a href="{{ route('auth.login.show') }}" class="text-primary">sign in</a> or <a
+                                href="{{ route('auth.sign-up.show') }}" class="text-primary">create an account</a> to
+                            participate in this
+                            discussion.
+                        </div>
+                    @endguest
                 </div>
 
                 {{-- Rigth Content --}}
@@ -202,6 +220,23 @@
                 var alertContainer = alert.find('.container');
                 alertContainer.first().text('Link to this discussions copied');
             })
+
+            $('#answer').summernote({
+                placeholder: 'Write your solution here',
+                tabSize: 2,
+                height: 220,
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'underline', 'clear']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['table', ['table']],
+                    ['insert', ['link', 'picture', 'video']],
+                    ['view', ['fullscreen', 'codeview', 'help']]
+                ]
+            });
+
+            $('span.note-icon-caret').remove();
 
             $('#discussion-like').click(function() {
                 var isLiked = $(this).data('liked');
